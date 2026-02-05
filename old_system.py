@@ -33,9 +33,9 @@ def run_system_monolith():
                 print(n[i], " - ", r[i]) 
                 
         elif opt == "2":
-            new_name = input("Name: ")
-            new_rank = input("Rank: ")
-            new_div = input("Division: ")
+            new_name = input("Name: ").title()
+            new_rank = input("Rank: ").title()
+            new_div = input("Division: ").title()
             
            
             n.append(new_name)
@@ -45,13 +45,19 @@ def run_system_monolith():
             print("Crew member added.")
             
         elif opt == "3":
+            
             rem = input("Name to remove: ").title().strip() # removes any whitespace and capitalises the first letter
-           
-            idx = n.index(rem)
-            n.pop(idx)
-            r.pop(idx)
-            d.pop(idx)
-            print("Removed.")
+            while rem not in n: #while loop to ensure a valid name to remove is entered 
+                print("Name is not in list.\n")
+                rem = input("Name to remove: ").title().strip()
+            else:
+                idx = n.index(rem)
+                n.pop(idx)
+                r.pop(idx)
+                d.pop(idx)
+                print("Removed.\n")
+
+            
             
         elif opt == "4":
             print("Analyzing...")
@@ -60,7 +66,7 @@ def run_system_monolith():
             for rank in r:
                 if rank == "Captain" or "Commander": 
                     count = count + 1
-            print("High ranking officers: " + count) 
+            print("High ranking officers: ", + count) # used a comma to separate the string from a variable
             
         elif opt == "5":
             print("Shutting down.")

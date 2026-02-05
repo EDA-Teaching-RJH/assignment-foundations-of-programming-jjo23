@@ -6,6 +6,12 @@ d = ["Command", "Operations", "None", "None", "Security"]
 id = ["5423","9867", "9068", "1654", "3459"]
 
 
+def display_roster():
+    for i in range(len(n)):
+        print(f"{n[i]} -- {r[i]} -- {id[i]}\n")
+    
+    display_menu()
+
 
 def add_member():
     new_n = str(input("enter name to add: ")).title().strip()
@@ -31,11 +37,11 @@ def display_menu():
     print("4 - Update rank")
     print("5 - Search crew")
     print("6 - Filter By Division")
-    print("7 - Calculate Payroll")
+    print("7 - Calculate Payroll")/
     print("8 - Count Officers")
     print("9 - Exit")
 
-    userinput = int(input("Enter option: \n"))
+    userinput = int(input("Enter option: "))
     
     #if statements to determine what the outcome is
     if userinput == 1:

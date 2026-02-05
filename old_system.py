@@ -29,8 +29,8 @@ def run_system_monolith():
         if opt == "1":  # add another "=" for syntax error
             print("Current Crew List:")
             
-            for i in range(10):
-                print(n[i] + " - " + r[i]) 
+            for i in range(0,len(n)): # remove the iteration through 0-10 and replace it with the length of elements in the names list
+                print(n[i], " - ", r[i]) 
                 
         elif opt == "2":
             new_name = input("Name: ")

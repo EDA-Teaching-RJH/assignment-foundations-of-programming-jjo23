@@ -29,7 +29,7 @@ def run_system_monolith():
         if opt == "1":  # add another "=" for syntax error
             print("Current Crew List:")
             
-            for i in range(0,len(n)): # remove the iteration through 0-10 and replace it with the length of elements in the names list
+            for i in range(0,len(n)): # remove the iteration through 0-10 and replace it with the length of elements in the names list  
                 print(n[i], " - ", r[i]) 
                 
         elif opt == "2":
@@ -39,10 +39,13 @@ def run_system_monolith():
             
            
             n.append(new_name)
+            # added the new_rank and new_div to their respective lists 
+            r.append(new_rank)
+            d.append(new_div)
             print("Crew member added.")
             
         elif opt == "3":
-            rem = input("Name to remove: ")
+            rem = input("Name to remove: ").title().strip() # removes any whitespace and capitalises the first letter
            
             idx = n.index(rem)
             n.pop(idx)

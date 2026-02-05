@@ -7,6 +7,19 @@ id = ["5423","9867", "9068", "1654", "3459"]
 
 
 
+def add_member():
+    new_n = str(input("enter name to add: ")).title().strip()
+    new_r = str(input("enter rank: ")).title().strip()
+    new_d = str(input("enter division: ")).title().strip()
+    new_id = str(input("enter ID: ")).strip()
+
+    n.append(new_n)
+    r.append(new_r)
+    d.append(new_d)
+    id.append(new_id)
+    
+    print("New member added.")
+    display_menu()
 
 # created the display_menu function
 def display_menu():
@@ -22,30 +35,27 @@ def display_menu():
     print("8 - Count Officers")
     print("9 - Exit")
 
-
-    while userinput > 0 and userinput < 5:
-        # asks the user for their input choice
-        userinput = int(input("Enter option: \n"))
+    userinput = int(input("Enter option: \n"))
     
-        #if statements to determine what the outcome is
-        if userinput == 1:
-            init_database()
-        elif userinput == 2:
-            add_member()
-        elif userinput == 3:
-            remove_member()
-        elif userinput == 4:
-            update_rank()
-        elif userinput == 5:
-            search_crew()
-        elif userinput == 6:
-            filter_by_div()
-        elif userinput == 7:
-            calculate_payroll()
-        elif userinput == 8:
-            count_officers()
-        else:
-            break
+    #if statements to determine what the outcome is
+    if userinput == 1:
+        display_roster()
+    elif userinput == 2:
+        add_member()
+    elif userinput == 3:
+        remove_member()
+    elif userinput == 4:
+        update_rank()
+    elif userinput == 5:
+        search_crew()
+    elif userinput == 6:
+        filter_by_div()
+    elif userinput == 7:
+        calculate_payroll()
+    elif userinput == 8:
+        count_officers()
+    else:
+        exit
 
 #asks the user for their full name as their login and prints it our when done
 login = str(input("Enter full name: \n")).title().strip()

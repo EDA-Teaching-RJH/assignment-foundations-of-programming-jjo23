@@ -7,8 +7,9 @@ id = ["5423","9867", "9068", "1654", "3459"]
 
 
 def display_roster():
+    print("NAME -- RANK -- ID")
     for i in range(len(n)):
-        print(f"{n[i]} -- {r[i]} -- {id[i]}\n")
+        print(f"{n[i]} -- {r[i]} -- {id[i]}")
     
     display_menu()
 
@@ -27,6 +28,29 @@ def add_member():
     print("New member added.")
     display_menu()
 
+
+# function to remove the members from the system
+def remove_member():
+    #prompt the user to enter the name they would like to remove 
+    name = str(input("who would like to remove: ")).title().strip()
+    
+    # while loop to make sure a valid name is entered
+    while name not in n:
+        print("name is not in list.")
+        name = str(input("who would like to remove: ")).title().strip()
+    else:
+       # pops the data from their respective lists
+       idx = n.index(name)
+       n.pop(idx)
+       r.pop(idx)
+       d.pop(idx)
+       id.pop(idx)
+
+    print("Member removed.")
+
+    display_menu()
+
+
 # created the display_menu function
 def display_menu():
 
@@ -37,7 +61,7 @@ def display_menu():
     print("4 - Update rank")
     print("5 - Search crew")
     print("6 - Filter By Division")
-    print("7 - Calculate Payroll")/
+    print("7 - Calculate Payroll")
     print("8 - Count Officers")
     print("9 - Exit")
 

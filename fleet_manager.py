@@ -3,7 +3,7 @@
 n = ["Airiam", "Jonathan Archer", "Ascencia", "Soji Asha", "Ayala"]
 r = ["Lt, Commander", "Captain", "Civilian", "Civilian", "Lieutenant"]
 d = ["Command", "Operations", "None", "None", "Security"]
-id = ["5423","9867", "9068", "1654", "3459"]
+id = ["100","101", "102", "103", "104"]
 
 
 def display_roster():
@@ -32,15 +32,15 @@ def add_member():
 # function to remove the members from the system
 def remove_member():
     #prompt the user to enter the name they would like to remove 
-    name = str(input("who would like to remove: ")).title().strip()
+    query = str(input("enter ID: ")).title().strip()
     
     # while loop to make sure a valid name is entered
-    while name not in n:
-        print("name is not in list.")
-        name = str(input("who would like to remove: ")).title().strip()
+    while query not in id:
+        print("ID is not in list.")
+        query = str(input("enter ID: ")).title().strip()
     else:
        # pops the data from their respective lists
-       idx = n.index(name)
+       idx = n.index(query)
        n.pop(idx)
        r.pop(idx)
        d.pop(idx)
@@ -62,6 +62,26 @@ def update_rank():
     print("Rank updated.")
 
     display_menu()
+
+def search_crew():
+    search_condition = input("how would you like to search through the crew?(name, rank, id): ").lower()
+    value = str(input("what are you searching for?: ")).title()
+    found = False
+
+    for i in range(len(n)):
+        if search_condition == "name" and n[i] == value:
+            print(f"{n[i]} -- {r[i]} -- {id[i]}")
+            found = True
+        elif search_condition  == "rank" and  r[i] == value:
+            print(f"{n[i]} -- {r[i]} -- {id[i]}")
+            found = True
+        elif search_condition == "id" and id[i] == value:
+            print(f"{n[i]} -- {r[i]} -- {id[i]}")
+            found = True
+    display_menu()
+
+    if not found:
+        print("No matches found")
 
 # created the display_menu function
 def display_menu():

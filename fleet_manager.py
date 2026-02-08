@@ -50,6 +50,18 @@ def remove_member():
 
     display_menu()
 
+def update_rank():
+    num = str(input("enter ID to update: ")).strip()
+    while num not in id:
+        num = str(input("enter ID to update: ")).strip()            
+    else:
+        new_rank = str(input("enter updated rank: ")).title().strip()
+        idx = id.index(num)
+        r[idx] = new_rank
+
+    print("Rank updated.")
+
+    display_menu()
 
 # created the display_menu function
 def display_menu():

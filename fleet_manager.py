@@ -2,7 +2,7 @@
 
 n = ["Airiam", "Jonathan Archer", "Ascencia", "Soji Asha", "Ayala"]
 r = ["Lt, Commander", "Captain", "Civilian", "Civilian", "Lieutenant"]
-d = ["Command", "Operations", "None", "None", "Security"]
+d = ["Command", "Operations", "None", "None", "Sciences"]
 id = ["100","101", "102", "103", "104"]
 
 
@@ -25,7 +25,8 @@ def add_member():
     d.append(new_d)
     id.append(new_id)
     
-    print("New member added.")
+    print("New member added.\n")
+    display_roster()
     display_menu()
 
 
@@ -46,8 +47,8 @@ def remove_member():
        d.pop(idx)
        id.pop(idx)
 
-    print("Member removed.")
-
+    print("Member removed.\n")
+    display_roster()
     display_menu()
 
 def update_rank():
@@ -59,8 +60,8 @@ def update_rank():
         idx = id.index(num)
         r[idx] = new_rank
 
-    print("Rank updated.")
-
+    print("Rank updated.\n")
+    display_roster()
     display_menu()
 
 def search_crew():
@@ -83,10 +84,31 @@ def search_crew():
     if not found:
         print("No matches found")
 
+
+def filter_by_div():
+    div = str(input("Enter division (Command, Operations or Sciences): ")).title().strip()
+    match div:
+        case "Operations":
+            for i in range(len(n)):
+                if d[i] == div:
+                    print(f"{n[i]} -- {r[i]} -- {id[i]}")
+        case "Command":
+            for i in range(len(n)):
+                if d[i] == div:
+                    print(f"{n[i]} -- {r[i]} -- {id[i]}")
+        case "Sciences":
+            for i in range(len(n)):
+                if d[i] == div:
+                    print(f"{n[i]} -- {r[i]} -- {id[i]}")
+        case _:
+            print("No matches found.")
+    display_menu()
+
+
 # created the display_menu function
 def display_menu():
 
-    print("===Menu===")
+    print("=====MENU=====")
     print("1 - View members")
     print("2 - add members")
     print("3 - remove member")

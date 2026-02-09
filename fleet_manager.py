@@ -1,7 +1,7 @@
 # note i havent actually watched star trek so i dont have a clue if these characters and their divisions are factual
 
 n = ["Airiam", "Jonathan Archer", "Ascencia", "Soji Asha", "Ayala"]
-r = ["Lt, Commander", "Captain", "Civilian", "Civilian", "Lieutenant"]
+r = ["Commander", "Captain", "Civilian", "Civilian", "Commander"]
 d = ["Command", "Operations", "None", "None", "Sciences"]
 id = ["100","101", "102", "103", "104"]
 
@@ -121,6 +121,19 @@ def calculate_payroll():
     display_menu()
     return cost
         
+def count_officers():
+    captain_count = 0
+    commander_count = 0
+    for i in range(len(r)):
+        match r[i]:
+            case "Captain":
+                captain_count += 1
+            case "Commander":
+                commander_count += 1
+    print(f"The total number of Captains is {captain_count}")
+    print(f"The total number of Commanders is {commander_count}")
+    display_menu()
+    return captain_count, commander_count
 
 
 # created the display_menu function

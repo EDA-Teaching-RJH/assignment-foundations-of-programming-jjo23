@@ -104,6 +104,24 @@ def filter_by_div():
             print("No matches found.")
     display_menu()
 
+def calculate_payroll():
+    cost = 0
+    for i in range(len(r)):
+        if r[i] == "Captain":
+            cost += 1000
+        elif r[i] == "Commander":
+            cost += 750
+        elif r[i] == "Lt, Commander":
+            cost += 600
+        elif r[i] == "Lieutenant":
+            cost += 500
+        elif r[i] == "Civilian":
+            cost += 50
+    print(f"The total cost of the crew is {cost}\n")
+    display_menu()
+    return cost
+        
+
 
 # created the display_menu function
 def display_menu():

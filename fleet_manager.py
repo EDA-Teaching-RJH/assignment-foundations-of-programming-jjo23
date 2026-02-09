@@ -105,10 +105,13 @@ def filter_by_div():
     display_menu()
 
 def calculate_payroll():
+    # assigns a cost value of 0 to be printed out
     cost = 0
+    # loops through the length of the ranks list
     for i in range(len(r)):
+        # assigns a cost to each member according to their rank
         if r[i] == "Captain":
-            cost += 1000
+            cost += 1000 
         elif r[i] == "Commander":
             cost += 750
         elif r[i] == "Lt, Commander":
@@ -117,14 +120,18 @@ def calculate_payroll():
             cost += 500
         elif r[i] == "Civilian":
             cost += 50
+    # prints out the total cost and returns it for later use
     print(f"The total cost of the crew is {cost}\n")
     display_menu()
     return cost
         
 def count_officers():
+    # assigns a captain count and commander count of 0
     captain_count = 0
     commander_count = 0
+    # loops through the ranks list 
     for i in range(len(r)):
+        # used the match function to compare the current elements in the lists to a certain rank
         match r[i]:
             case "Captain":
                 captain_count += 1
